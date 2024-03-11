@@ -1,6 +1,3 @@
-Here's the C++ code with user input to find the element with the maximum frequency in a vector, incorporating the best aspects of the previous responses and addressing potential shortcomings:
-
-C++
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -18,8 +15,8 @@ int maxFrequencyElements(vector<int>& nums) {
     }
 
     // Find the element with the maximum frequency
-    for (auto& [element, frequency] : frequencyMap) {
-        maxFrequency = max(maxFrequency, frequency);
+    for (unordered_map<int, int>::iterator it = frequencyMap.begin(); it != frequencyMap.end(); ++it) {
+        maxFrequency = max(maxFrequency, it->second);
     }
 
     // Handle the case where all elements have the same frequency (edge case)
@@ -29,8 +26,8 @@ int maxFrequencyElements(vector<int>& nums) {
 
     // Count the number of elements with the maximum frequency
     int elementsWithMaxFrequency = 0;
-    for (auto& [element, frequency] : frequencyMap) {
-        if (frequency == maxFrequency) {
+    for (unordered_map<int, int>::iterator it = frequencyMap.begin(); it != frequencyMap.end(); ++it) {
+        if (it->second == maxFrequency) {
             elementsWithMaxFrequency++;
         }
     }
